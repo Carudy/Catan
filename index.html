@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="bk">
+        <div id="infobar">
+            <info id="info0">卡坦岛</info>
+            <info id="info1">当前行动：XX</info>
+            <info id="info2"></info>
+        </div>
+
+        <div id="stage">
+            <div id="road"> </div>
+            <canvas id="canva" width="900" height="650"></canvas>
+            <div id="rbar">
+                <table class="block" id="ctrl">
+                    <tr><td colspan="5" style="color: green">你的资源：</td></tr>
+
+                    <tr> 
+                        <td> <p>砖:<span class="var">0</span></p> </td>  
+                        <td> <p> 树:<span class="var">0</span></p> </td> 
+                        <td> <p> 麦:<span class="var">0</span></p> </td> 
+                        <td> <p> 羊:<span class="var">0</span></p> </td> 
+                        <td> <p> 石:<span class="var">0</span></p> </td> 
+                    </tr>
+
+                    <tr><td colspan="5" style="color: rgb(242,65,12)">发展卡：</td></tr>
+                    <tr>
+                        <td> 军队：<span id="jun" class="var">0</span>  <button>使用</button> </td>
+                        <td> 丰收：<span id="feng" class="var">0</span> <button>使用</button> </td>
+                        <td> 修路：<span id="xiu" class="var">0</span>  <button>使用</button> </td>
+                        <td> 垄断：<span id="xiu" class="var">0</span>  <button>使用</button> </td>
+                    </tr>
+
+                    <tr><td colspan="5" style="color: rgb(21,65,242)">行动：</td></tr>
+                    <tr>
+                        <td> <button>修路</button> </td>
+                        <td> <button>建村</button> </td>
+                        <td> <button>升城</button> </td>
+                        <td> <button>发展</button> </td>
+                    </tr>
+
+                    <tr><td colspan="5" style="color: rgb(181,122,25)">交易：</td></tr>
+                    <tr>
+                        <td>对象:</td> 
+                        <td colspan="4"> <input id="trade" type="text"> </td>
+                    </tr>
+                    <tr>    
+                        <td>要求:</td>
+                        <td> 砖 <input type="radio" name="trade0"> </td>
+                        <td> 树 <input type="radio" name="trade0"> </td>
+                        <td> 麦 <input type="radio" name="trade0"> </td>
+                        <td> 羊 <input type="radio" name="trade0"> </td>
+                        <td> 石 <input type="radio" name="trade0"> </td>
+                    </tr>
+                    <tr>
+                        <td>给出:</td> 
+                        <td> 砖 <input type="radio" name="trade1"> </td>
+                        <td> 树 <input type="radio" name="trade1"> </td>
+                        <td> 麦 <input type="radio" name="trade1"> </td>
+                        <td> 羊 <input type="radio" name="trade1"> </td>
+                        <td> 石 <input type="radio" name="trade1"> </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"> <button>港口/银行</button> </td>
+                        <td colspan="2"> <button>同意交易</button> </td>
+                        <td colspan="2"> <button>发起交易</button> </td>
+                    </tr>
+
+                    <tr>
+                        <td style="color: rgb(81,22,25)">得分：</td>
+                        <td> <span id="credit" class="var" >0</span> </td>
+                        <td> 成就：</td>
+                        <td colspan="1">  </td>
+                        <td colspan="2">  </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="1"> 色子1: </td>
+                        <td colspan="1"> 0 </td>
+                        <td colspan="1"> 色子2: </td>
+                        <td colspan="1"> 0 </td>
+                        <td colspan="2"> <button>掷色子</button> </td>
+                    </tr>
+
+                    <tr style="height: 1em"></tr>
+                    <tr>
+                        <td colspan="4"></td>
+                        <td colspan="2"> <button>结束回合</button> </td>
+                    </tr>
+                   
+                </table>
+            </div>
+        </div>
+
+        <img class="hide" id="clay" src="img/clay.png">
+        <img class="hide" id="ore" src="img/ore.png">
+        <img class="hide" id="wool" src="img/6.png">
+        <img class="hide" id="wood" src="img/6.png">
+        <img class="hide" id="grain" src="img/grain.png">
+
+        <div id="con">
+            <table class="block" id="net">
+                <tr> <td>ID：</td>  <td><input   id="nick" class="inp" type="text"></td> </tr>
+                <tr> <td>服务器：</td><td><input  id="addr" class="inp" type="text"></td> </tr>
+                <tr> <td>端口：</td>  <td><input  id="port" class="inp" type="text"> <button id="link">连接</button></td> </tr>
+                <!-- <tr> <td>tp：</td><td><input  id="type" class="inp" type="text"></td> </tr> -->
+                <tr>
+                    <td colspan="2"> <i style="color: brown">使用唯一ID，方便重连；先连接，后开始</i> </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td> <button style="float: right;" id="ready" >开始游戏</button> </td>
+                </tr>
+            </table>
+
+            <div class="block" id="others">
+                <table>
+                    <tr style="font-weight: bolder; color: rgb(28, 75, 160);"> <td>当前在线：</td> </tr>
+                    <tr style="font-weight: bold;"> 
+                        <td> UID </td> <td> 昵称 </td> <td> 卡牌数量 </td> <td> Ready </td>
+                    </tr>
+                </table>
+                <table id="others-list">
+                    <!-- <tr> <td> UID </td> <td> Name </td> <td> Card Number </td> <td> Ready </td> </tr> -->
+                </table>
+            </div>
+
+            <div class="block" id="chat">
+                <div id="chat_board">
+                </div>
+                <div id="say">
+                    <input id="speech" type="text"/> <button id="speak">发送</button>
+                </div>
+            </div>            
+        </div>
+    </div>
+</body>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<script src="map.js"></script>
+<script src="index.js"></script>
+</html>

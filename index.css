@@ -1,0 +1,190 @@
+*{
+    font-size: 1em;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+body {
+  font-family: '微软雅黑';
+  background: rgb(235, 240, 245) 100% 100% no-repeat;
+  padding: 2px;
+  text-align: center;
+}
+
+#bk{
+    background: rgb(200, 200, 200);
+    text-align: left;
+    width: 1300px;
+    height: 900px;
+    box-shadow: 10px 10px 10px #888888;
+}
+
+#infobar{
+    width: 100%;
+    background: rgb(195, 210, 235);
+    height: 50px;
+    font-weight: bolder;
+    border-bottom: 2px solid #112253;
+}
+
+#stage{
+    width: 100%;
+    background: grey;
+    height: 650px;
+}
+
+#con{
+    width: 100%;
+    background: rgb(220, 210, 165);
+    height: 200px;
+}
+
+info{
+  display: inline-block;
+  margin-top: 0.5em;
+  margin-left: 3em;
+  font-size: 1.3em;
+  width: 15em;
+}
+
+.block{
+  float: left;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+  display: inline-block;
+}
+
+#net{
+  font-weight: bold;
+  margin-left: 0;
+  width: 320px;
+  height: 100%; 
+  background: rgb(170, 195, 230); 
+}
+
+#chat{
+  background: rgb(60, 60, 60);
+  /*max-width: 25em;*/
+  width: 400px; 
+  height: 100%;
+  float: right;
+  color: rgb(222, 223, 232);
+}
+
+.chat_box{
+  margin-left: 0.5em;
+  margin-top: 0.5em;
+  font-weight: bold;
+  width: 90%;
+  word-wrap:break-word; 
+  word-break:break-all; 
+  background: rgb(50, 50, 50);
+}
+
+#chat_board{
+  overflow: auto;
+  height: 80%;
+}
+
+#say{
+  height: 20%;
+  margin-left: 1em;
+  margin-top: 0.5em;
+}
+
+.inp{
+  font-size: 1em;
+  width: 10em;
+  background: rgb(240, 230, 240);
+}
+
+#speech{
+  width: 16em;
+}
+
+.pad{
+  font-size: 1.3em;
+}
+
+#tar{
+  font-size: 1.5em;
+}
+
+#onlines{
+  color: grey;
+  font-style: italic;
+}
+
+#online-user{
+  font-weight: bold;
+}
+
+#ctrl{
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#ctrl td{
+  width: 6em;
+  height: 2em;
+}
+
+.var{
+  color : rgb(123, 65, 21);
+}
+
+.hide{
+  display: none;
+}
+
+canvas{
+  display: inline-block;
+  background: url('img/sea.jpg');
+}
+
+#rbar{
+  display: inline-block;
+  word-wrap:break-word; 
+  word-break:break-all; 
+  background: rgb(170, 190, 250 );
+  width: 399px;
+  height: 100%;
+  float: right;
+  border-left: 1px solid black;
+}
+
+#rbar button:hover{
+  color: brown;
+}
+
+#road{
+  display: inline-block;
+  position: absolute;
+  width: 900px;
+  height: 650px;
+}
+
+.dot{
+  background-color: rgb(146, 62, 52);
+  border-radius: 1em;
+  min-width: 1.5em;
+  min-height: 1.5em;
+  display: none;
+}
+
+.dot:hover{ 
+  background-color: gold;
+}
+
+#trade{
+  font-size: 0.8em;
+  width: 8em;
+}
+
+#others{
+  width: 520px;
+}
+
+#others td{
+  width: 8em;
+}
