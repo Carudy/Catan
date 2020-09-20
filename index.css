@@ -157,11 +157,15 @@ canvas{
   color: brown;
 }
 
-#road{
+#road, #number{
   display: inline-block;
   position: absolute;
   width: 900px;
   height: 650px;
+}
+
+#road{
+  display: none;
 }
 
 .dot{
@@ -169,11 +173,25 @@ canvas{
   border-radius: 1em;
   min-width: 1.5em;
   min-height: 1.5em;
-  display: none;
+  /*display: none;*/
+}
+
+.cc{
+  background-color: rgb(220, 210, 180);
+  font-size: 1.75em;
+  font-weight: bold;
+  border-radius: 3em;
+  width: 2em;
+  height: 2em;
+  border-bottom: 4px solid #0a0a0a;
 }
 
 .dot:hover{ 
   background-color: gold;
+}
+
+.cc:hover{ 
+  background-color: green;
 }
 
 #trade{

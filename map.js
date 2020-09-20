@@ -12,6 +12,11 @@ draw_img = (c, x, y) =>{
     cxt.drawImage($('#' + c)[0], x, y, img_width, img_height)
 }
 
+hex_center = (a, b) => {
+    let x = sx[a] + b * img_width, y = sy[a]
+    return [x + img_width *0.5, y + img_height *0.5]
+}
+
 hex_dot_pos = (a, b) => {
     a -= 1
     b -= 1
@@ -55,7 +60,7 @@ set_map = () => {
     for(let i=1; i<5; ++i) sy[i] = sy[i-1] + img_height * 0.75
 }
 
-draw_hex = (a, b) => {
+draw_hex_dot = (a, b) => {
     for (let i of hex_dot_pos(a, b)){
         cxt.beginPath()
         cxt.arc(i[0], i[1], 5, 0, Math.PI*2);
@@ -64,11 +69,32 @@ draw_hex = (a, b) => {
     }
 }
 
+draw_hex_center = (a, b) =>{
+    c = hex_center(a, b)
+    cxt.beginPath()
+    cxt.arc(c[0], c[1], 25, 0, Math.PI*2);
+    cxt.closePath()
+    cxt.fill()
+    console.log(c)
+}
+
 add_point_btn = () => {
     for(let i in dot_pos) {
         if(!Boolean($('#' + i)[0])){
             $('#road').append('<button onclick="select_dot(\'' + i + '\')" class="dot" id="' + i + '"> </button>')
             $('#' + i).offset({'top' : offset.top + dot_pos[i][1], 'left' : offset.left + dot_pos[i][0]})
+        }
+    }
+}
+
+add_number_circle = (mp) => {
+    $('#number').html('')
+    for(let i of mp){
+        let cor = n2cor(i[0])
+        let c = hex_center(cor[0]-1, cor[1]-1)
+        if(!Boolean($('#c' + i[0])[0])){
+            $('#number').append('<button onclick="select_center(\'' + i[0] + '\')" class="cc" id="c' + i[0] + '">' + i[2] + ' </button>')
+            $('#c' + i[0]).offset({'top' : offset.top + c[1] - 15, 'left' : offset.left + c[0] - 15})
         }
     }
 }
@@ -97,12 +123,9 @@ draw_map = (mp) =>{
     c.width = c.width
     for(let i of mp){
         let cor = n2cor(i[0])
-        draw_img('wood', sx[cor[0]-1] + (cor[1]-1) * img_width, sy[cor[0]-1])
+        draw_img(i[1], sx[cor[0]-1] + (cor[1]-1) * img_width, sy[cor[0]-1])
     }
-    // for(let i=0; i<3; ++i) draw_img('wood', sx[0] + i * img_width, sy[0])
-    // for(let i=0; i<4; ++i) draw_img('wood', sx[1] + i * img_width, sy[1])
-    // for(let i=0; i<5; ++i) draw_img('wood', sx[2] + i * img_width, sy[2])
-    // for(let i=0; i<4; ++i) draw_img('wood', sx[3] + i * img_width, sy[3])
-    // for(let i=0; i<3; ++i) draw_img('wood', sx[4] + i * img_width, sy[4])
+
     add_point_btn()
+    add_number_circle(mp)
 }

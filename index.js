@@ -91,6 +91,10 @@ select_dot = (str) => {
     }
 }
 
+select_center = (str) => {
+    return
+}
+
 cd_run = (func, k, t) =>{
     if (cd[k]>=t){
         cd[k] = 0
